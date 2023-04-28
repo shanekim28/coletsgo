@@ -1,0 +1,22 @@
+{
+  "name": "coletsgo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanekim28/coletsgo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shanekim28/coletsgo/issues"
+  },
+  "homepage": "https://github.com/shanekim28/coletsgo#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
