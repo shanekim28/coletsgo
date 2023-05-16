@@ -1,18 +1,9 @@
+/* Example routes file */
 const router = require('express').Router()
+const controllers = require('../controllers/example_controller.js')
 
 // TODO routers here
-// router.post('/blogpost', controllers.postBlog)
+// Example product route that takes id as a parameter
+router.get('/:id', controllers.getProduct);
 
-module.exports = router
-
-/* Example routes file */
-/* products.js
-const controllers = require('./controller.js')
-const router = require('express').Router()
-
-module.exports = () => {
-   router.get('/', controllers.allProducts)
-   router.get('/:id', controllers.getProduct)
-   router.post('/', controllers.createProduct)
-}
-*/
+module.exports = router;
