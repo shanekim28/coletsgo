@@ -1,0 +1,10 @@
+.mainContent {
+    width: 50%;
+    margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+    .mainContent {
+        width: 33%
+    }
+}

@@ -1,0 +1,16 @@
+.userCard {
+    display: flex;
+    height: 40px;
+}
+
+.floor {
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+
+.name {
+    display: flex;
+    width: 80%;
+    align-items: center;
+}

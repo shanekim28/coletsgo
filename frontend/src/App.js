@@ -1,6 +1,8 @@
+import ListViewComponent from "./components/ListViewComponent";
+
 function App() {
   return (
-    <h1>NEW REACT APP YAY</h1>
+    <ListViewComponent />
   );
 }
 
