@@ -1,6 +1,10 @@
+import CheckInComponent from "./components/CheckInComponent"
 function App() {
   return (
-    <h1>NEW REACT APP YAY</h1>
+    <>
+      <CheckInComponent></CheckInComponent>
+    </>
+    
   );
 }
 
