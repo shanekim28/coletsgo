@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import CheckInForm from "./CheckInForm";
 import ToggleButton from "./ToggleButton";
 
-function ModalBox() {
+function CheckInComponent() {
   const [show, setShow] = useState(false);
   const [isIn, setIsIn] = useState(false);
 
@@ -33,4 +33,4 @@ function ModalBox() {
   );
 }
 
-export default ModalBox;
+export default CheckInComponent;
