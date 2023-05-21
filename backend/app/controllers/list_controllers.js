@@ -1,17 +1,30 @@
-const app = require('express')()
-const PORT = 4040;
+const return_geisel_list = require('../services/dict_services.js');
+const add_to_geisel_list = require('../services/dict_services.js');
 
-//const people_in_geisel = require('../dictnames.js').default
-const people_in_geisel = require('../dictnames');
-var array_PIG = Object.values(people_in_geisel)
 
-app.listen(
-    PORT,
-    () => console.log(`it's alive on http://localhost:${PORT}`)
-)
+const getList = (req, res) => {
+    try {
+        const listnames = return_geisel_list();
 
-app.get('/api/list', (req, res) => {
-    res.status(200).send(
-        array_PIG
-    )
-});
+        res.send(listnames);
+    }
+     catch (err) {
+         res.status(500).send(err);
+     }
+}
+
+const addList = (req, res) => {
+    try {
+        const id = req.params.id;
+        add_to_geisel_list(id);
+        const listnames = return_geisel_list();
+
+        res.send(listnames);
+     }
+     catch (err) {
+         res.status(500).send(err);
+     }
+}
+
+module.exports = getList;
+module.exports = addList;
