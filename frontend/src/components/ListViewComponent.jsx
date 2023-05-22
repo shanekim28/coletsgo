@@ -1,6 +1,5 @@
 import UserCardComponent from "./UserCardComponent";
 import ListViewModule from "./ListViewComponent.module.css";
-//import FetchApi from "./FetchApi"
 import { useEffect, useState } from 'react';
 
 const ListViewComponent = () => {
@@ -16,7 +15,7 @@ const ListViewComponent = () => {
 
     return (
         <div className= {ListViewModule.mainContent}>
-            <h1>Who's In?</h1>
+            <p className = "pheader"><u>WHO'S IN?</u></p>
             <div className = "listContainer">
                 {
                 list.length > 0 && list.map((item) => 
