@@ -1,20 +1,19 @@
+import ToggleButtonCSS from './ToggleButton.module.css';
+
 const ToggleButton = ({ onClick, isIn }) => {
   const buttonStyle = {
-    backgroundColor: isIn ? "red" : "green",
-    height: "15vh",
-    width: "55vh",
+    backgroundColor: isIn ? "#DF6B53" : "#FFFFFF",
   };
 
   return (
     <>
-      <button
+    <button
         type="button"
-        className="btn btn-primary btn-lg btn-block"
+        className={ToggleButtonCSS.btn}
         onClick={onClick}
         style={buttonStyle}
       >
-        <h6>Current status: {isIn ? "I'm in" : "I'm out"}</h6>
-        <h2>{isIn ? "I'm not!" : "I am!"}</h2>
+        <h2>{isIn ? "I'M NOT!" : "I AM!"}</h2>
       </button>
     </>
   );

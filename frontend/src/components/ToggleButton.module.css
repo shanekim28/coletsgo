@@ -1,0 +1,18 @@
+.btn {
+    font-family: "AppleGothic";
+    font-weight: 400;
+    font-size: 2rem;
+    
+    height:100%;
+    width:20%;
+    min-width: 80px;
+
+    box-sizing: border-box;
+    border: 1px solid; 
+    border-color: #076471;
+    margin: 1rem;
+}
+
+h2 {
+    padding: 5%;
+}

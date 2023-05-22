@@ -1,18 +1,38 @@
-import { useState } from "react";
-import { useCookies } from "react-cookie";
+import { useState, useEffect } from "react";
+import Cookies from 'js-cookie';
+
+import CheckInFormCSS from './CheckInForm.module.css';
 
 const CheckInForm = ({onClose}) => {
   const [name, setName] = useState("");
-  const [cookies, setCookie] = useCookies(["userId"]);
-  const [show, setShow] = useState(false);
+  const [floor, setFloor] = useState("");
+
+  useEffect(() => { 
+    // gets inputs previous set
+    const storedName = Cookies.get('name');
+    const storedFloor = Cookies.get('floor');
+
+    // sets the form's inputs
+    if (storedName && storedFloor) {
+      setName(storedName);
+      setFloor(storedFloor);
+    }
+  }, []);
+
+  const handleCookie = () => {
+    Cookies.set('name', name);
+    Cookies.set('floor', floor);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShow(false);
-    const userId = cookies.userId;
-    const payload = { userId: userId, userName: name };
 
-    fetch("/api/list", {
+    const payload = { 
+      userId: Cookies.get('userId'), 
+      name: Cookies.get('name') 
+    };
+
+    fetch("https://0cbc7cb3-8ad3-485c-abe9-72b5beec1acb.mock.pstmn.io/api/list", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -24,9 +44,9 @@ const CheckInForm = ({onClose}) => {
         return response.json();
       })
       .then((data) => {
-        const guid = data.guid;
-        setCookie("userId", guid);
-        console.log("new user");
+        console.log(data.userId);
+        console.log(payload);
+        onClose();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -35,27 +55,27 @@ const CheckInForm = ({onClose}) => {
 
   return (
     <>
-      <form onSubmit={(e) => {
-              e.preventDefault(); 
-              onClose();
-            }}>
-        <div className="box">
+      <form onSubmit={handleSubmit}>
+        <div className={CheckInFormCSS.inputContainer}>
           <label>
-            Name: <input required name="myInput" />
+            <input className={CheckInFormCSS.name} required name="myInput" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)}/>
           </label>
+          <h2>IN<br/><br/></h2>
           <p>
-            What floor of Geisel are you at?:
-            <select defaultValue={""} required>
-              <option value=""></option>
-              <option value="1">1W</option>
-              <option value="2">1E</option>
-              <option value="3">2W</option>
-              <option value="4">2E</option>
+            <select id="floor" className={CheckInFormCSS.floor} required value={floor} onChange={(e) => setFloor(e.target.value)}>
+              <option value="FLOOR" disabled>FLOOR</option>
+              <option value="1W">1W</option>
+              <option value="1E">1E</option>
+              <option value="2W">2W</option>
+              <option value="2E">2E</option>
             </select>
           </p>
           <input
+            id="submitBtn"
+            className={CheckInFormCSS.submitBtn}
             type="submit"
-            value="Submit"
+            value="ADD ME!"
+            onClick={handleCookie}
           ></input>
         </div>
       </form>
