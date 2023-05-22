@@ -18,6 +18,7 @@ module.exports = {
     add_to_geisel_list: (string_name) => {
         const random_uuid = uuidv4();
         people_in_geisel[random_uuid] = string_name;
+        return random_uuid;
     },
 
     get_geisel_list: () => {
