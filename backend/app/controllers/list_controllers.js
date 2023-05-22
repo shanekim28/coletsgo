@@ -17,7 +17,7 @@ module.exports = {
             const id = req.params.id;
             add_to_geisel_list(id);
             const listnames = get_geisel_list();
-    ``
+    
             res.send(listnames);
         }
         catch (err) {
