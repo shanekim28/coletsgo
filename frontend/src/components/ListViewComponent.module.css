@@ -1,0 +1,23 @@
+.mainContent {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding-top: 75px;
+    font-family: Helvetica, sans-serif;
+    font: Helvetica;
+    font-size: 28px;
+    font-weight: 100;
+}
+
+.pheader{
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+}
+
+
+@media screen and (min-width: 800px) {
+    .mainContent {
+        width: 33%
+    }
+}
+;
