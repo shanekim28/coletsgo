@@ -15,12 +15,10 @@ function uuidv4() {
 
 // to insert into dictionary, use this function with a string argument
 module.exports = {
-    add_to_geisel_list: (string_name, string_floor) => {
+    add_to_geisel_list: (name, floor) => {
         const random_uuid = uuidv4();
-        
-        people_in_geisel[random_uuid] = new Array();
-        people_in_geisel[random_uuid].push(string_name);
-        people_in_geisel[random_uuid].push(string_floor);
+
+        people_in_geisel[random_uuid] = {name, floor};
 
         return random_uuid;
     },
