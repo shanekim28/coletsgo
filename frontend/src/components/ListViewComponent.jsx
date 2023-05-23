@@ -15,7 +15,7 @@ const ListViewComponent = () => {
 
     return (
         <div className= {ListViewModule.mainContent}>
-            <p className = "pheader"><u>WHO'S IN?</u></p>
+            <p className = {ListViewModule.pheader}>WHO'S IN?</p>
             <div className = "listContainer">
                 {
                 list.length > 0 && list.map((item) => 
