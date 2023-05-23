@@ -13,6 +13,7 @@ Node version: 18.10.0
 4. Install express with `npm install express`
 5. Create a .env file with `touch .env` and fill it in as needed. See the [example below](#sample-env).
 6. Create a database container with `docker compose up -d`. If you don't have docker, install it [here](https://www.docker.com/).
+7. Migrate the database with `npx sequelize-cli db:migrate`
 
 ## Running the application
 
