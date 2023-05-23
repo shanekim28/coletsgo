@@ -14,11 +14,9 @@ module.exports = {
 
     addList: (req, res) => {
         try {
-            const id = req.params.id;
-            add_to_geisel_list(id);
-            const listnames = get_geisel_list();
-    
-            res.send(listnames);
+            console.log(req.body);
+            uuid = add_to_geisel_list(req.body.name, req.body.floor);
+            res.send({ "id": uuid });
         }
         catch (err) {
             res.status(500).send(err);
