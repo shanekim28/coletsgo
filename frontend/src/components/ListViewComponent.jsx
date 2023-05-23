@@ -6,7 +6,7 @@ const ListViewComponent = () => {
     const [list, setList] = useState([]);
 
     const FetchApi = () => {
-        fetch("http://127.0.0.1:3001/api/list")
+        fetch("http://localhost:3001/api/list")
             .then((response) => response.json())
             .then((data) => setList(data));    
     }

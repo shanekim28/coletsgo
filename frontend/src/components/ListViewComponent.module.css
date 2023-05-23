@@ -1,8 +1,6 @@
 .mainContent {
-    width: 50%;
-    margin: auto;
+    width: 100%;
     text-align: center;
-    padding-top: 75px;
     font-family: Helvetica, sans-serif;
     font: Helvetica;
     font-size: 28px;
@@ -13,11 +11,3 @@
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
 }
-
-
-@media screen and (min-width: 800px) {
-    .mainContent {
-        width: 33%
-    }
-}
-;
