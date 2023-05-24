@@ -1,5 +1,5 @@
 form {
-    font-family: 'AppleGothic';
+    font-family: sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 2rem;
@@ -16,14 +16,22 @@ form {
     border-top-color: transparent;
     border-right-color: transparent;
     border-left-color: transparent;
+    color: #000000
 }
 
 .submitBtn {
     min-width: 155px;
     width: 40%;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+
     border: 1px solid; 
+    border-radius: 5px;
+    
     background-color: #C5F0C9;
     border-color: #076471;
-    border-radius: 5px;
+
+    color: #000000;
+    font-weight: 400;
 }

@@ -27,6 +27,3 @@ const ListViewComponent = () => {
 }
 
 export default ListViewComponent;
-
-
-
