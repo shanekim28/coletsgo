@@ -1,5 +1,5 @@
 .btn {
-    font-family: "AppleGothic";
+    font-family: sans-serif;
     font-weight: 400;
     font-size: 2rem;
     
@@ -10,8 +10,4 @@
     box-sizing: border-box;
     border: 1px solid; 
     border-color: #076471;
-}
-
-h2 {
-    padding: 5%;
 }

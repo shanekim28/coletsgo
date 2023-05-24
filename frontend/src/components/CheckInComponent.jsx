@@ -50,12 +50,12 @@ function CheckInComponent() {
   return (
     <>
       <ToggleButton onClick={() => handleClick()} isIn={isIn}/>
-        <Modal show={show} onHide={cancel}>
-          <Modal.Header closeButton/>
-          <Modal.Body>
-            <CheckInForm onClose={close} />
-          </Modal.Body>
-        </Modal>
+      <Modal show={show} onHide={cancel}>
+        <Modal.Header closeButton/>
+        <Modal.Body>
+          <CheckInForm onClose={close} />
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

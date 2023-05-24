@@ -13,7 +13,7 @@ const ToggleButton = ({ onClick, isIn }) => {
         onClick={onClick}
         style={buttonStyle}
       >
-        <h2>{isIn ? "I'M NOT!" : "I AM!"}</h2>
+        {isIn ? "I'M NOT!" : "I AM!"}
       </button>
     </>
   );
