@@ -32,6 +32,7 @@ function CheckInComponent() {
     if (isIn) {
       fetch(`${process.env.REACT_APP_API_URL}/api/list`, {
         method: 'DELETE',
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           userId: Cookies.get('userId')
         })
@@ -42,6 +43,7 @@ function CheckInComponent() {
         }
         Cookies.set('userId', null);
         Cookies.remove('userId');
+        window.location.reload();
       });
       
     }
