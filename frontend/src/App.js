@@ -1,8 +1,8 @@
-import CheckInComponent from "./components/CheckInComponent"
+import ListViewComponent from "./components/ListViewComponent";
 function App() {
   
   return (
-    <CheckInComponent/>
+    <ListViewComponent />
   );
 }
 
