@@ -6,7 +6,7 @@ const ListViewComponent = () => {
     const [list, setList] = useState([]);
 
     const FetchApi = () => {
-        fetch("http://localhost:3001/api/list")
+        fetch(`${process.env.REACT_APP_API_URL}/api/list`)
             .then((response) => response.json())
             .then((data) => setList(data));    
     }
