@@ -30,9 +30,22 @@ function CheckInComponent() {
     setIsIn(!isIn); 
     !isIn && setShow(true)
     if (isIn) {
-      Cookies.set('userId', null);
+      fetch(`${process.env.REACT_APP_API_URL}/api/list`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+          userId: Cookies.get('userId')
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        Cookies.set('userId', null);
+        Cookies.remove('userId');
+      });
+      
     }
-  };
+  }
 
   return (
     <>

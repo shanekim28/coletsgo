@@ -32,7 +32,7 @@ const CheckInForm = ({onClose}) => {
       name: Cookies.get('name') 
     };
 
-    fetch("https://0cbc7cb3-8ad3-485c-abe9-72b5beec1acb.mock.pstmn.io/api/list", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/list`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -44,9 +44,8 @@ const CheckInForm = ({onClose}) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.userId);
-        console.log(payload);
         onClose();
+        Cookies.set('userId', data.userId);
       })
       .catch((error) => {
         console.error("Error:", error);
