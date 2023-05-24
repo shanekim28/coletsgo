@@ -1,8 +1,9 @@
-import ListViewComponent from "./components/ListViewComponent";
+import MainLayout from "./layouts/MainLayout";
+
 function App() {
   
   return (
-    <ListViewComponent />
+    <MainLayout/>
   );
 }
 

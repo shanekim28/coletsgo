@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 const ListViewComponent = () => {
     const [list, setList] = useState([]);
 
-    const FetchApi = () => {   
-        fetch("https://0cbc7cb3-8ad3-485c-abe9-72b5beec1acb.mock.pstmn.io/api/list")
+    const FetchApi = () => {
+        fetch("http://localhost:3001/api/list")
             .then((response) => response.json())
             .then((data) => setList(data));    
     }
