@@ -5,6 +5,8 @@
     font: Helvetica;
     font-size: 28px;
     font-weight: 100;
+    margin-bottom: auto;
+    padding: 0 50px;
 }
 
 .pheader{

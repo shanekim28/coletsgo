@@ -29,7 +29,8 @@ const CheckInForm = ({onClose}) => {
 
     const payload = { 
       userId: Cookies.get('userId'), 
-      name: Cookies.get('name') 
+      name: Cookies.get('name'),
+      floor: Cookies.get('floor')
     };
 
     fetch(`${process.env.REACT_APP_API_URL}/api/list`, {
@@ -62,7 +63,7 @@ const CheckInForm = ({onClose}) => {
           <h2>IN<br/><br/></h2>
           <p>
             <select id="floor" className={CheckInFormCSS.floor} required value={floor} onChange={(e) => setFloor(e.target.value)}>
-              <option value="FLOOR" disabled>FLOOR</option>
+              <option value="" disabled>FLOOR</option>
               <option value="1W">1W</option>
               <option value="1E">1E</option>
               <option value="2W">2W</option>
