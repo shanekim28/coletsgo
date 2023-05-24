@@ -47,6 +47,7 @@ const CheckInForm = ({onClose}) => {
       .then((data) => {
         onClose();
         Cookies.set('userId', data.userId);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error:", error);
