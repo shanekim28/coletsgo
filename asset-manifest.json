@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/coletsgo/static/css/main.f9ebbea6.css",
-    "main.js": "/coletsgo/static/js/main.2925385f.js",
+    "main.css": "/coletsgo/static/css/main.8ae26206.css",
+    "main.js": "/coletsgo/static/js/main.6218a02a.js",
     "static/js/787.cda612ba.chunk.js": "/coletsgo/static/js/787.cda612ba.chunk.js",
-    "static/media/decaflogo.png": "/coletsgo/static/media/decaflogo.1af5066ceb93bbfb325c.png",
+    "static/media/logo512.png": "/coletsgo/static/media/logo512.8184c8f4c6e4e5f4c3c8.png",
     "index.html": "/coletsgo/index.html",
-    "main.f9ebbea6.css.map": "/coletsgo/static/css/main.f9ebbea6.css.map",
-    "main.2925385f.js.map": "/coletsgo/static/js/main.2925385f.js.map",
+    "main.8ae26206.css.map": "/coletsgo/static/css/main.8ae26206.css.map",
+    "main.6218a02a.js.map": "/coletsgo/static/js/main.6218a02a.js.map",
     "787.cda612ba.chunk.js.map": "/coletsgo/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9ebbea6.css",
-    "static/js/main.2925385f.js"
+    "static/css/main.8ae26206.css",
+    "static/js/main.6218a02a.js"
   ]
 }
