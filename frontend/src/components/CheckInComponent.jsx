@@ -26,6 +26,7 @@ function CheckInComponent() {
       setIsIn(true);
     }
   }
+
   const handleClick = () => {
     setIsIn(!isIn); 
     !isIn && setShow(true)
@@ -50,9 +51,9 @@ function CheckInComponent() {
 
   return (
     <>
-      <ToggleButton onClick={() => handleClick()} isIn={isIn}/>
-      <Modal show={show} onHide={cancel}>
-        <Modal.Header closeButton/>
+      <ToggleButton onClick={handleClick} isIn={isIn} />
+      <Modal keyboard={false} show={show}>
+        <Modal.Header closeButton onClick={cancel}/>
         <Modal.Body>
           <CheckInForm onClose={close} />
         </Modal.Body>

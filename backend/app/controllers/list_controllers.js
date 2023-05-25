@@ -13,8 +13,13 @@ module.exports = {
 
     addList: (req, res) => {
         try {
-            console.log(req.body);
+            if (req.body.name.length > 12) {
+                res.status(400).send();
+                return;
+            }
+
             uuid = add_to_geisel_list(req.body.name, req.body.floor);
+            console.log("Added user: " + uuid + " | " + req.body.name);
             res.send({ "userId": uuid });
         }
         catch (err) {
