@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://shanekim28.github.io/coletsgo",
+  "homepage": "http://geiselgremlins.co/coletsgo",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
