@@ -1,5 +1,4 @@
-const { get_geisel_list, add_to_geisel_list } = require('../services/dict_services.js');
-const { models } = require('../../context/dbcontext');
+const { get_geisel_list, add_to_geisel_list, remove_from_geisel_list } = require('../services/dict_services.js');
 
 module.exports = {
     getList: (req, res) => {
@@ -19,6 +18,21 @@ module.exports = {
             res.send({ "userId": uuid });
         }
         catch (err) {
+            res.status(500).send(err);
+        }
+    },
+
+    removeList: (req ,res) => {
+        try {
+            uuid = req.body.userId;
+            if (remove_from_geisel_list(uuid)) {
+                res.status(204).send();
+                return;
+            }
+            else
+                res.status(400).send();
+        }
+        catch (err){
             res.status(500).send(err);
         }
     }
