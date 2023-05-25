@@ -3,10 +3,21 @@ import Cookies from 'js-cookie';
 
 import CheckInFormCSS from './CheckInForm.module.css';
 
+const useOnce = (cb) => {
+  const [called, setCalled] = useState(false);
+
+  return (e) => {
+    e.preventDefault();
+    if (!called) {
+      setCalled(true);
+      cb(e);
+    }
+  }
+}
+
 const CheckInForm = ({onClose}) => {
   const [name, setName] = useState("");
   const [floor, setFloor] = useState("");
-  const [submitting, setSubmitting] = useState(true);
 
   useEffect(() => { 
     // gets inputs previous set
@@ -20,12 +31,7 @@ const CheckInForm = ({onClose}) => {
     }
   }, []);
 
-  const handleClick = (e) => {
-    setSubmitting(true);
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = useOnce((e) => {
 
     Cookies.set('name', name);
     Cookies.set('floor', floor);
@@ -55,9 +61,8 @@ const CheckInForm = ({onClose}) => {
         console.error("Error:", error);
       })
       .finally(() => {
-        setSubmitting(false);
       });
-  };
+  });
 
   return (
     <>
@@ -81,8 +86,6 @@ const CheckInForm = ({onClose}) => {
             className={CheckInFormCSS.submitBtn}
             type="submit"
             value="ADD ME!"
-            disabled={!submitting}
-            onClick={handleClick}
           ></input>
         </div>
       </form>
