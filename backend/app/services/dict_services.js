@@ -28,6 +28,10 @@ module.exports = {
     },
 
     remove_from_geisel_list: (uuid) => {
-        people_in_geisel.delete(uuid);
+        if(uuid in people_in_geisel){
+            delete people_in_geisel[uuid];
+            return true;
+        }
+        return false;
     }
 }

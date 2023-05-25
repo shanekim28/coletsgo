@@ -25,12 +25,11 @@ module.exports = {
 
     removeList: (req ,res) => {
         try {
-            listnames = get_geisel_list();
-            uuid = req.body.uuid;
-            while(!listnames.has(uuid)){
-                uuid = req.body.uuid;
-            }
-            remove_from_geisel_list(uuid);
+            uuid = req.body.userId;
+            if(remove_from_geisel_list(uuid))
+                res.status(204).send();
+            else
+                res.status(400).send();
         }
         catch (err){
             res.status(500).send(err);
