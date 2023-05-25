@@ -1,6 +1,6 @@
 import SplashScreenModule from "./SplashScreen.module.css";
 import { useEffect, useState } from "react";
-import image from "../assets/decaflogo.png";
+import image from "../assets/logo512.png";
 
 const SplashScreen = () => { 
   const [visible, setVisible] = useState(true);
