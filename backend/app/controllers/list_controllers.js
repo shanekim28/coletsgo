@@ -1,4 +1,4 @@
-const { get_geisel_list, add_to_geisel_list } = require('../services/dict_services.js');
+const { get_geisel_list, add_to_geisel_list, remove_from_geisel_list } = require('../services/dict_services.js');
 
 
 module.exports = {
@@ -19,6 +19,20 @@ module.exports = {
             res.send({ "userId": uuid });
         }
         catch (err) {
+            res.status(500).send(err);
+        }
+    },
+
+    removeList: (req ,res) => {
+        try {
+            listnames = get_geisel_list();
+            uuid = req.body.uuid;
+            while(!listnames.has(uuid)){
+                uuid = req.body.uuid;
+            }
+            remove_from_geisel_list(uuid);
+        }
+        catch (err){
             res.status(500).send(err);
         }
     }

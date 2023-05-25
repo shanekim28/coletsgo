@@ -25,5 +25,9 @@ module.exports = {
 
     get_geisel_list: () => {
         return Object.values(people_in_geisel);
+    },
+
+    remove_from_geisel_list: (uuid) => {
+        people_in_geisel.delete(uuid);
     }
 }
