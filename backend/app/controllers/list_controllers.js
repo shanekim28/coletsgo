@@ -19,7 +19,7 @@ module.exports = {
             }
 
             uuid = add_to_geisel_list(req.body.name, req.body.floor);
-            console.log("Added user: " + req.body + " | " + req.body.name);
+            console.log("Added user: " + uuid + " | " + req.body.name);
             res.send({ "userId": uuid });
         }
         catch (err) {

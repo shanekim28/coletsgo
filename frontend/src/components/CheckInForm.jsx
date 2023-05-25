@@ -32,7 +32,6 @@ const CheckInForm = ({onClose}) => {
   }, []);
 
   const handleSubmit = useOnce((e) => {
-
     Cookies.set('name', name);
     Cookies.set('floor', floor);
 
@@ -54,8 +53,8 @@ const CheckInForm = ({onClose}) => {
         return response.json();
       })
       .then((data) => {
-        onClose();
         Cookies.set('userId', data.userId);
+        onClose();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -69,7 +68,7 @@ const CheckInForm = ({onClose}) => {
       <form onSubmit={handleSubmit}>
         <div className={CheckInFormCSS.inputContainer}>
           <label>
-            <input className={CheckInFormCSS.name} required name="myInput" placeholder="NAME" value={name} maxlength="12" onChange={(e) => setName(e.target.value)}/>
+            <input className={CheckInFormCSS.name} required name="myInput" placeholder="NAME" value={name} maxlength="12" onChange={(e) => setName(e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))}/>
           </label>
           <h2>IN<br/><br/></h2>
           <p>

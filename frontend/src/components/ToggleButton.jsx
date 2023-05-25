@@ -1,6 +1,7 @@
 import ToggleButtonCSS from './ToggleButton.module.css';
 
 const ToggleButton = ({ onClick, isIn }) => {
+
   const buttonStyle = {
     backgroundColor: isIn ? "#DF6B53" : "#FFFFFF",
   };
