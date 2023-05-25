@@ -1,7 +1,7 @@
 const { dbuser, dbpass, db, dbhost, dbport } = require('../config');
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(`postgres://${dbuser}:${dbpass}@${dbhost}:${dbport}/${db}`, {
+const sequelize = new Sequelize(`postgres://${dbuser}:${dbpass}@${dbhost}:${dbport}/${db}?ssl=true`, {
   logging: console.log,
 });
 
