@@ -9,27 +9,9 @@ function CheckInComponent() {
   const [isIn, setIsIn] = useState(false);
   const myCookie = Cookies.get('userId');
 
-  useEffect(() => { 
-    cookieSet();
-  }, []);
-
-  const close = () => {
-    setShow(false);
-  }
-  const cancel = () => {
-    setIsIn(false);
-    setShow(false);
-  }
-  // if cookie is already set
-  const cookieSet = () => {
-    if(myCookie){
-      setIsIn(true);
-    }
-  }
-  const handleClick = () => {
-    setIsIn(!isIn); 
-    !isIn && setShow(true)
+  const fetchDelete = () => {
     if (isIn) {
+      setIsIn(!isIn); 
       fetch(`${process.env.REACT_APP_API_URL}/api/list`, {
         method: 'DELETE',
         headers: { "Content-Type": "application/json" },
@@ -44,9 +26,39 @@ function CheckInComponent() {
         Cookies.set('userId', null);
         Cookies.remove('userId');
       });
-      
     }
   }
+
+  useEffect(() => { 
+    cookieSet();
+  }, []);
+  useEffect(() => {
+    return () => {
+      window.addEventListener("beforeunload", function(e) {
+        fetchDelete();
+      });
+   }
+  });
+
+  const handleClick = () => {
+    setIsIn(!isIn); 
+    !isIn && setShow(true);
+    fetchDelete();
+  }
+  const close = () => {
+    setShow(false);
+  }
+  const cancel = () => {
+    setIsIn(false);
+    setShow(false);
+  }
+  // if cookie is already set
+  const cookieSet = () => {
+    if(myCookie){
+      setIsIn(true);
+    }
+  }
+  
 
   return (
     <>
