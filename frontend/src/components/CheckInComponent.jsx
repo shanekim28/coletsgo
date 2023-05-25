@@ -43,7 +43,6 @@ function CheckInComponent() {
         }
         Cookies.set('userId', null);
         Cookies.remove('userId');
-        window.location.reload();
       });
       
     }
