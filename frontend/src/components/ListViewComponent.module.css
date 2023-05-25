@@ -1,0 +1,15 @@
+.mainContent {
+    width: 100%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font: Helvetica;
+    font-size: 28px;
+    font-weight: 100;
+    margin-bottom: auto;
+    padding: 0 50px;
+}
+
+.pheader{
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+}

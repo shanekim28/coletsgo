@@ -1,20 +1,11 @@
 /* Use this file to expose your routes */
+const list = require('./routes/list_route.js');
 const express = require('express');
-const products = require('./routes/example_route.js');
+const cors = require('cors');
 const app = express();
 
-/* TODO: Find better way to do this for multiple models */
-const db = require('./repositories/context.js');
-const userModel = require('./models/user_model.js')(db.sequelize, db.Sequelize);
-
-userModel.sequelize.sync()
-  .then(() => {
-    console.log("Synced");
-  }).catch((err) => {
-    console.log("Failed to sync: " + err);
-  });
-
-// Using route '/product' with everything from products, our example route
-app.use("/product", products)
+app.use(express.json());
+app.use(cors());
+app.use("/api/list", list)
 
 module.exports = app
