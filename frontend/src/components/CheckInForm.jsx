@@ -20,10 +20,12 @@ const CheckInForm = ({onClose}) => {
     }
   }, []);
 
+  const handleClick = (e) => {
+    setSubmitting(true);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setSubmitting(true);
 
     Cookies.set('name', name);
     Cookies.set('floor', floor);
@@ -80,6 +82,7 @@ const CheckInForm = ({onClose}) => {
             type="submit"
             value="ADD ME!"
             disabled={!submitting}
+            onClick={handleClick}
           ></input>
         </div>
       </form>
