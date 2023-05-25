@@ -6,6 +6,7 @@ import CheckInFormCSS from './CheckInForm.module.css';
 const CheckInForm = ({onClose}) => {
   const [name, setName] = useState("");
   const [floor, setFloor] = useState("");
+  const [submitting, setSubmitting] = useState(true);
 
   useEffect(() => { 
     // gets inputs previous set
@@ -19,13 +20,13 @@ const CheckInForm = ({onClose}) => {
     }
   }, []);
 
-  const handleCookie = () => {
-    Cookies.set('name', name);
-    Cookies.set('floor', floor);
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setSubmitting(true);
+
+    Cookies.set('name', name);
+    Cookies.set('floor', floor);
 
     const payload = { 
       userId: Cookies.get('userId'), 
@@ -50,6 +51,9 @@ const CheckInForm = ({onClose}) => {
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
   };
 
@@ -75,7 +79,7 @@ const CheckInForm = ({onClose}) => {
             className={CheckInFormCSS.submitBtn}
             type="submit"
             value="ADD ME!"
-            onClick={handleCookie}
+            disabled={!submitting}
           ></input>
         </div>
       </form>
