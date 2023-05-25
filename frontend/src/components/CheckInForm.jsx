@@ -69,7 +69,7 @@ const CheckInForm = ({onClose}) => {
       <form onSubmit={handleSubmit}>
         <div className={CheckInFormCSS.inputContainer}>
           <label>
-            <input className={CheckInFormCSS.name} required name="myInput" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)}/>
+            <input className={CheckInFormCSS.name} required name="myInput" placeholder="NAME" value={name} maxlength="12" onChange={(e) => setName(e.target.value)}/>
           </label>
           <h2>IN<br/><br/></h2>
           <p>
